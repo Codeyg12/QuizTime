@@ -3,27 +3,41 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Super Mega Ultra Quiz</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
+    />
     <link rel="stylesheet" href="./assets/css/style.css" />
+    <title>Super Mega Quiz</title>
   </head>
   <body>
-    <div class="counter"></div>
-    <div class="container">
-      <div id="questionsContainer" class="hidden">
-        <div id="title">Question</div>
-        <div id="answerOptions" class="btns">
-            <button class="btn" id="A">A</button>
-            <button class="btn" id="B">B</button>
-            <button class="btn" id="C">C</button>
-            <button class="btn" id="D">D</button>
-        </div>
+    <div class="container is-fluid">
+      <div id="startPage" class="startPage has-background-info">
+        <h1 class="title is-size-1">Welcome to my JavaScript Quiz!</h1>
+        <p class="subtitle is-size-4">To begin hit the start button</p>
+        <p class="subtitle is-size-5">
+          After you selecet your answer it'll tell you right or wrong then click
+          again to move on!
+        </p>
+        <button id="startBtn" class="button is-fullwidth is-dark is-large">
+          Start
+        </button>
       </div>
-      <div class="controls">
-        <button id="begin" class="beginBtn btn">Begin</button>
-        <button id="next" class="nextBtn btn hidden">Next</button>
+      <div class="is-invisible" id="questionsContainer">
+        <div class="title" id="title"></div>
+        <div class="subtitle" id="options"></div>
+        <div id="timer" class="is-flex is-large title"></div>
+        <progress
+          id="progress"
+          class="progress is-link"
+          value="100"
+          max="100"
+        ></progress>
+      </div>
+      <div class="box is-invisible" id="score">
+        <input class="input" id="input" placeholder="Enter name here">
       </div>
     </div>
-
     <script src="./assets/js/main.js"></script>
   </body>
 </html>
