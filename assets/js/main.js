@@ -92,8 +92,8 @@ const questions = [
 
 //starts quiz
 function startQuiz() {
-  timeLeft = 60
-  progressBarEl.value = 100
+  timeLeft = 60;
+  progressBarEl.value = 100;
   //reveals the question container
   questionContainerEl.classList.remove("is-invisible");
   //hides the start page
@@ -235,13 +235,15 @@ function submitScore() {
     //sorts through list to detirmine where to place score
   } else {
     previousSave = [...previousSave[0], playerInfo];
-    let sortPrevious = previousSave.sort(function (a, b) {
-      if (a.score > b.score) {
-        return -1;
-      } else {
-        return 1;
-      }
-    }).slice(0, 10);
+    let sortPrevious = previousSave
+      .sort(function (a, b) {
+        if (a.score > b.score) {
+          return -1;
+        } else {
+          return 1;
+        }
+      })
+      .slice(0, 10);
     localStorage.setItem("playerInfo", JSON.stringify(sortPrevious));
   }
   scoreboard();
@@ -256,10 +258,10 @@ function scoreboard() {
     //Previous players scores with the number theyre in, name and score
     previousDisplayed.textContent =
       [i + 1] + ". " + cat.userName + " " + cat.score;
-      //styling the list
-      previousDisplayed.classList.add("has-text-centered")
-      previousDisplayed.classList.add("is-uppercase")
-      previousDisplayed.classList.add("is-size-4")
+    //styling the list
+    previousDisplayed.classList.add("has-text-centered");
+    previousDisplayed.classList.add("is-uppercase");
+    previousDisplayed.classList.add("is-size-4");
     scoreEl.appendChild(previousDisplayed);
   });
   playAgain();
@@ -271,18 +273,18 @@ function playAgain() {
   userScore.classList.add("is-invisible");
   enterBtn.classList.add("is-invisible");
   userNameEl.classList.add("is-invisible");
-  //creates and styles start over 
+  //creates and styles start over
   let redoBtn = document.createElement("button");
   redoBtn.classList.add("button");
   redoBtn.classList.add("is-dark");
-  redoBtn.classList.add("is-fullwidth")
-  redoBtn.classList.add("mt-6")
+  redoBtn.classList.add("is-fullwidth");
+  redoBtn.classList.add("mt-6");
   redoBtn.textContent = "Start Over?";
   scoreEl.appendChild(redoBtn);
   //listens for click on start over then hides button and starts quiz
   redoBtn.addEventListener("click", function () {
     redoBtn.classList.add("is-invisible");
-    scoreEl.classList.add("is-invisible")
+    scoreEl.classList.add("is-invisible");
 
     startQuiz();
   });
