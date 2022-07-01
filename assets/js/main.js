@@ -95,9 +95,9 @@ function startQuiz() {
   timeLeft = 60;
   progressBarEl.value = 100;
   //reveals the question container
-  questionContainerEl.classList.remove("is-invisible");
+  questionContainerEl.classList.remove("is-hidden");
   //hides the start page
-  introContainerEl.classList.add("is-invisible");
+  introContainerEl.classList.add("is-hidden");
   questionIndex = 0;
   questionShuffle = questions.sort(() => Math.random() - 0.5);
   generateQuestion();
@@ -201,8 +201,8 @@ function clearAnswerEval(element) {
 //ends quiz amd hides the container
 function finishQuiz() {
   clearInterval(timedInterval);
-  questionContainerEl.classList.add("is-invisible");
-  scoreEl.classList.remove("is-invisible");
+  questionContainerEl.classList.add("is-hidden");
+  scoreEl.classList.remove("is-hidden");
   scoreSub();
 }
 let userScore = document.createElement("h2");
@@ -270,9 +270,9 @@ function scoreboard() {
 //starts the quiz again
 function playAgain() {
   //hides the save button, input bar and score informer
-  userScore.classList.add("is-invisible");
-  enterBtn.classList.add("is-invisible");
-  userNameEl.classList.add("is-invisible");
+  userScore.classList.add("is-hidden");
+  enterBtn.classList.add("is-hidden");
+  userNameEl.classList.add("is-hidden");
   //creates and styles start over
   let redoBtn = document.createElement("button");
   redoBtn.classList.add("button");
@@ -283,8 +283,8 @@ function playAgain() {
   scoreEl.appendChild(redoBtn);
   //listens for click on start over then hides button and starts quiz
   redoBtn.addEventListener("click", function () {
-    redoBtn.classList.add("is-invisible");
-    scoreEl.classList.add("is-invisible");
+    redoBtn.classList.add("is-hidden");
+    scoreEl.classList.add("is-hidden");
 
     startQuiz();
   });
