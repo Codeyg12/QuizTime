@@ -139,9 +139,7 @@ function showQuestion(question) {
   question.answers.forEach((answer) => {
     let button = document.createElement("button");
     button.textContent = answer.text;
-    button.classList.add("button");
-    button.classList.add("is-dark");
-    button.classList.add("mx-6");
+    button.classList.add("button", "is-dark", "mx-6");
     //indicates if correct or not
     if (answer.correct) {
       button.dataset.correct = answer.correct;
@@ -213,8 +211,7 @@ function scoreSub() {
 
   userScore.textContent = "You finished with " + timeLeft + " seconds left.";
   enterBtn.textContent = "Save";
-  enterBtn.classList.add("button");
-  enterBtn.classList.add("is-dark");
+  enterBtn.classList.add("button", "is-dark");
   scoreEl.appendChild(userScore);
   scoreEl.appendChild(enterBtn);
   enterBtn.addEventListener("click", submitScore);
@@ -259,9 +256,7 @@ function scoreboard() {
     previousDisplayed.textContent =
       [i + 1] + ". " + cat.userName + " " + cat.score;
     //styling the list
-    previousDisplayed.classList.add("has-text-centered");
-    previousDisplayed.classList.add("is-uppercase");
-    previousDisplayed.classList.add("is-size-4");
+    previousDisplayed.classList.add("has-text-centered", "is-uppercase", "is-size-4");
     scoreEl.appendChild(previousDisplayed);
   });
   playAgain();
@@ -275,10 +270,7 @@ function playAgain() {
   userNameEl.classList.add("is-hidden");
   //creates and styles start over
   let redoBtn = document.createElement("button");
-  redoBtn.classList.add("button");
-  redoBtn.classList.add("is-dark");
-  redoBtn.classList.add("is-fullwidth");
-  redoBtn.classList.add("mt-6");
+  redoBtn.classList.add("button", "is-dark", "is-fullwidth", "mt-6");
   redoBtn.textContent = "Start Over?";
   scoreEl.appendChild(redoBtn);
   //listens for click on start over then hides button and starts quiz
